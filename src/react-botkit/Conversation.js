@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
+import { Messages } from './types.js';
 import Bubble from './Bubble.js';
 import './botkit.css';
 
@@ -9,6 +10,13 @@ class Conversation extends Component {
     this.state = {
       messages: [],
     };
+  }
+
+  static propTypes = {
+    thread: PropTypes.shape({
+      authors: PropTypes.object.isRequired,
+      messages: Messages.isRequired,
+    }),
   }
 
   componentDidMount() {
