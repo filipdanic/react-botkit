@@ -1,0 +1,17 @@
+.conversation-list {
+  list-style: none;
+  text-align: left;
+}
+
+.conversation-list .conversation-list--item {
+  margin: 2px 0 2px 0;
+  border-radius: 5px 25px 25px 5px;
+  padding: 10px 15px;
+}
+
+.conversation-list .conversation-list--item::first-child {
+  border-radius: 25px 25px 25px 5px;
+}
+.conversation-list .conversation-list--item::last-child {
+  border-radius: 5px 25px 25px 25px;
+}
