@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Messages } from './types.js';
 import Bubble from './Bubble.js';
-import './botkit.css';
+import './react-botkit.css';
 
 class Conversation extends Component {
 
@@ -29,7 +29,7 @@ class Conversation extends Component {
     const { messages } = this.state;
 
     return (
-      <ul className="conversation-list">
+      <ul className="conversation_list">
         {
           messages.map(msg =>  {
             return <Bubble key={msg.contents} message={msg} author={authors[msg.author]} />;

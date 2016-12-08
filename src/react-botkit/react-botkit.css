@@ -1,0 +1,35 @@
+.conversation_list {
+  list-style: none;
+  text-align: left;
+}
+
+.conversation_list .conversation_list_item--left,
+.conversation_list .conversation_list_item--right {
+  margin: 2px 0 2px 0;
+  padding: 10px 15px;
+}
+
+.conversation_list .conversation_list_item--left {
+  border-radius: 5px 25px 25px 5px;
+}
+
+.conversation_list .conversation_list_item--right {
+  border-radius: 25px 5px 5px 25px;
+}
+
+.item_slide_in_up {
+  animation: slideInUp 0.5s;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translate3d(0, 100%, 0);
+    visibility: visible;
+    opacity: 0.01;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}

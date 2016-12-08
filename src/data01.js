@@ -77,5 +77,11 @@ export default {
       author: 'ccffa39f-2ba2',
       delay: botTypingInterval,
     },
+    {
+      type: 'message',
+      contents: 'Yeah, pretty neat! Cheers! 🍻',
+      author: '3ba34f4d-8c6e',
+      delay: userTypingInterval,
+    },
   ],
 };

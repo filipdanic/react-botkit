@@ -5,7 +5,7 @@ import { Author} from './types.js';
 class Bubble extends Component {
 
   static propTypes = {
-    author: Author,
+    author: Author.isRequired,
   };
 
   render() {
@@ -19,9 +19,11 @@ class Bubble extends Component {
       color = defaults.color,
       background = defaults.background,
     } = author;
+    const itemAnimation = 'item_slide_in_up';
+    const itemClassName = `conversation_list_item--${position} ${itemAnimation}`;
     return (
       <div>
-        <li className="conversation-list--item" style={{ background, color, float: position }}>
+        <li className={itemClassName} style={{ background, color, float: position }}>
           {contents}
         </li>
         <div style={{ clear: 'both' }}>
