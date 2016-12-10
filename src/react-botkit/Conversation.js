@@ -1,3 +1,6 @@
+/**
+ * @fileoverview The <Conversation /> component renders and delegates the entire conversation thread.
+ */
 import React, { Component, PropTypes } from 'react';
 import { Messages } from './types.js';
 import Bubble from './Bubble.js';
@@ -30,25 +33,29 @@ class Conversation extends Component {
 
     return (
       <ul className="conversation_list">
-        {
-          messages.map(msg =>  {
+        { messages.map(msg =>  {
             return <Bubble key={msg.contents} message={msg} author={authors[msg.author]} />;
-          })
-        }
+          })}
       </ul>
     );
   }
 
+  /**
+   * Given the previous stack (array of messages), takes 1 from array, pushes it to the conversation thread.
+   * If the Array is still not empty, calls addToStack() again with the new Array, after a delay.
+   * @param {Array} prevStack
+   */
   addToStack(prevStack) {
-    const items = prevStack.slice(0);
+    const messagesOnStack = prevStack.slice(0);
     const { messages } = this.state;
-    const item = items.splice(0, 1)[0];
-    messages.push(item);
+    const nextMessage = messagesOnStack.splice(0, 1)[0];
+    messages.push(nextMessage);
     this.setState({messages});
-    if (items.length > 0) {
+    // if @param messagesOnStack is still a non-empty Array, addToStack(messagesOnStack).
+    if (messagesOnStack.length > 0) {
       setTimeout(() => {
-        this.addToStack(items);
-      }, items[0].delay);
+        this.addToStack(messagesOnStack);
+      }, messagesOnStack[0].delay);
     }
   }
 }

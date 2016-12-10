@@ -1,11 +1,16 @@
+/**
+ * @fileoverview The <Bubble /> component renders a single message in the conversation thread.
+ */
+
 import React, { Component } from 'react';
 import defaults from './defaults.js';
-import { Author} from './types.js';
+import { Author, Message } from './types.js';
 
 class Bubble extends Component {
 
   static propTypes = {
     author: Author.isRequired,
+    message: Message.isRequired,
   };
 
   render() {
