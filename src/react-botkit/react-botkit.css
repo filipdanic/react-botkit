@@ -44,7 +44,7 @@
 */
 
 .item_slide_in_up {
-  animation: slideInUp 0.5s;
+  animation: slideInUp 0.33s;
 }
 
 @keyframes slideInUp {

@@ -25,8 +25,9 @@ class Bubble extends Component {
       color = defaults.color,
       background = defaults.background,
     } = author;
-    const itemAnimation = 'item_slide_in_up';
-    const itemClassName = `${position === 'left' ? cssClasses.left : cssClasses.right} ${itemAnimation}`;
+    // TODO: add support for more animations
+    // const itemAnimation = 'item_slide_in_up';
+    const itemClassName = `${position === 'left' ? cssClasses.left : cssClasses.right} item_slide_in_up`;
     return (
       <div>
         <li className={itemClassName} style={{ background, color, float: position }}>
