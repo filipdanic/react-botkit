@@ -56,3 +56,13 @@ export const ThreadSettings = PropTypes.shape({
   skin: PropTypes.string,
   simulateChat: PropTypes.bool,
 });
+
+/**
+ * Specifices the CSS classes of the Bubble component.
+  * left {string}, the name of the class for left-aligned chat bubbles.
+  * right {string}, the name of the class for right-aligned chat bubbles.
+*/
+export const BubbleCSSClasses = PropTypes.shape({
+  left: PropTypes.string,
+  right: PropTypes.string,
+});

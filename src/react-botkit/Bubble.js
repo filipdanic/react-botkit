@@ -4,17 +4,18 @@
 
 import React, { Component } from 'react';
 import defaults from './defaults.js';
-import { Author, Message } from './types.js';
+import { Author, Message, BubbleCSSClasses } from './types.js';
 
 class Bubble extends Component {
 
   static propTypes = {
     author: Author.isRequired,
     message: Message.isRequired,
+    cssClasses: BubbleCSSClasses,
   };
 
   render() {
-    const { message, author } = this.props;
+    const { message, author, cssClasses } = this.props;
     const { contents } = message;
     const {
       showName = defaults.showName,
@@ -25,7 +26,7 @@ class Bubble extends Component {
       background = defaults.background,
     } = author;
     const itemAnimation = 'item_slide_in_up';
-    const itemClassName = `conversation_list_item--${position} ${itemAnimation}`;
+    const itemClassName = `${position === 'left' ? cssClasses.left : cssClasses.right} ${itemAnimation}`;
     return (
       <div>
         <li className={itemClassName} style={{ background, color, float: position }}>

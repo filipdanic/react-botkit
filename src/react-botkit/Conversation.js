@@ -3,6 +3,7 @@
  */
 import React, { Component, PropTypes } from 'react';
 import { Messages, ThreadSettings } from './types.js';
+import { getReactBotKitCSSClasses } from './utils.js';
 import Bubble from './Bubble.js';
 import './react-botkit.css';
 
@@ -29,13 +30,14 @@ class Conversation extends Component {
   }
 
   render() {
-    const { authors } = this.props.thread;
+    const { authors, settings } = this.props.thread;
     const { messages } = this.state;
+    const { main, bubble } = getReactBotKitCSSClasses(settings.skin);
 
     return (
-      <ul className="conversation_list">
-        { messages.map(msg =>  {
-            return <Bubble key={msg.contents} message={msg} author={authors[msg.author]} />;
+      <ul className={main}>
+        {messages.map(msg =>  {
+            return <Bubble key={msg.contents} cssClasses={bubble} message={msg} author={authors[msg.author]} />;
           })}
       </ul>
     );

@@ -1,21 +1,47 @@
-.conversation_list {
+/*
+  * Messenger Skin Styles
+*/
+.conversation_list--messenger {
   list-style: none;
   text-align: left;
 }
 
-.conversation_list .conversation_list_item--left,
-.conversation_list .conversation_list_item--right {
+.conversation_list--messenger .conversation_list_item--messenger--left,
+.conversation_list--messenger .conversation_list_item--messenger--right {
   margin: 2px 0 2px 0;
   padding: 10px 15px;
 }
 
-.conversation_list .conversation_list_item--left {
+.conversation_list--messenger .conversation_list_item--messenger--left {
   border-radius: 5px 25px 25px 5px;
 }
 
-.conversation_list .conversation_list_item--right {
+.conversation_list--messenger .conversation_list_item--messenger--right {
   border-radius: 25px 5px 5px 25px;
 }
+
+/*
+  * Telegram Skin Styles
+*/
+.conversation_list--telegram {
+  list-style: none;
+  text-align: left;
+}
+
+.conversation_list--telegram .conversation_list_item--telegram--left,
+.conversation_list--telegram .conversation_list_item--telegram--right {
+  margin: 2px 0 2px 0;
+  padding: 10px 15px;
+}
+
+.conversation_list--telegram .conversation_list_item--telegram--left,
+.conversation_list--telegram .conversation_list_item--telegram--right {
+  border-radius: 15px 15px 15px 15px;
+}
+
+/*
+  * Animation classess
+*/
 
 .item_slide_in_up {
   animation: slideInUp 0.5s;
