@@ -3,8 +3,8 @@
   "description": "React lib for creating chatbot presentations or displaying chat messages.",
   "version": "0.1.0",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/filipdanic/react-botkit.git"
+    "type": "git",
+    "url": "https://github.com/filipdanic/react-botkit.git"
   },
   "author": {
     "name": "Filip Danić",
@@ -12,6 +12,8 @@
     "url": "http://danicfilip.com"
   },
   "devDependencies": {
+    "enzyme": "^2.6.0",
+    "react-addons-test-utils": "^15.4.1",
     "react-scripts": "0.8.1"
   },
   "dependencies": {
@@ -20,9 +22,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom"
   },
   "license": "MIT",
-  "keywords": ["bots", "chatbots", "messenger", "chat template"],
+  "keywords": [
+    "bots",
+    "chatbots",
+    "messenger",
+    "chat template"
+  ],
   "bugs": "https://github.com/filipdanic/react-botkit/issues"
 }
