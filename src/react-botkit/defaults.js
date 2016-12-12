@@ -8,4 +8,6 @@ export default {
   background: '#0084ff',
   avatar: undefined,
   showName: false,
+  skin: 'messenger',
+  simulateChat: true,
 };

@@ -2,6 +2,10 @@ const userTypingInterval = 3000;
 const botTypingInterval = 1700;
 
 export default {
+  settings: {
+    skin: 'messenger',
+    simulateChat: true,
+  },
   authors: {
     '3ba34f4d-8c6e': {
       background: '#0084ff',

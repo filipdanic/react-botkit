@@ -2,7 +2,7 @@
  * @fileoverview The <Conversation /> component renders and delegates the entire conversation thread.
  */
 import React, { Component, PropTypes } from 'react';
-import { Messages } from './types.js';
+import { Messages, ThreadSettings } from './types.js';
 import Bubble from './Bubble.js';
 import './react-botkit.css';
 
@@ -19,12 +19,13 @@ class Conversation extends Component {
     thread: PropTypes.shape({
       authors: PropTypes.object.isRequired,
       messages: Messages.isRequired,
+      settings: ThreadSettings.isRequired,
     }),
   }
 
   componentDidMount() {
     const { thread } = this.props;
-    this.addToStack(thread.messages);
+    this.addToStack(thread.messages, thread.settings.simulateChat);
   }
 
   render() {
@@ -45,7 +46,7 @@ class Conversation extends Component {
    * If the Array is still not empty, calls addToStack() again with the new Array, after a delay.
    * @param {Array} prevStack
    */
-  addToStack(prevStack) {
+  addToStack(prevStack, simulateChat) {
     const messagesOnStack = prevStack.slice(0);
     const { messages } = this.state;
     const nextMessage = messagesOnStack.splice(0, 1)[0];
@@ -54,8 +55,8 @@ class Conversation extends Component {
     // if @param messagesOnStack is still a non-empty Array, addToStack(messagesOnStack).
     if (messagesOnStack.length > 0) {
       setTimeout(() => {
-        this.addToStack(messagesOnStack);
-      }, messagesOnStack[0].delay);
+        this.addToStack(messagesOnStack, simulateChat);
+      }, simulateChat ? messagesOnStack[0].delay : 0);
     }
   }
 }
