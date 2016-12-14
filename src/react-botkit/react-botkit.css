@@ -40,7 +40,7 @@
 }
 
 /*
-  * Animation classess
+  * Bubble nimation classess
 */
 
 .item_slide_in_up {
@@ -59,6 +59,10 @@
     opacity: 1;
   }
 }
+
+/*
+  * Typing indicator styles.
+*/
 
 .typing_dot {
     display: inline-block;

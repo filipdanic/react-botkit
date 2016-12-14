@@ -1,5 +1,5 @@
 const userTypingInterval = 3000;
-const botTypingInterval = 1700;
+const botTypingInterval = 2000;
 
 export default {
   settings: {
