@@ -7,6 +7,12 @@ import { getReactBotKitCSSClasses } from './utils.js';
 import Bubble from './Bubble.js';
 import './react-botkit.css';
 
+const typingIndicatorComponent = <div className="typing_wrapper">
+                <div className="typing_dot"></div>
+                <div className="typing_dot"></div>
+                <div className="typing_dot"></div>
+            </div>;
+
 class Conversation extends Component {
 
   constructor(props) {
@@ -30,15 +36,20 @@ class Conversation extends Component {
   }
 
   render() {
-    const { authors, settings } = this.props.thread;
+    const { authors, settings, messages: messagesSource } = this.props.thread;
     const { messages } = this.state;
     const { main, bubble } = getReactBotKitCSSClasses(settings.skin);
-
+    const displayTypingIndicator = messages.length < messagesSource.length;
+    const messageTypingIndex = messages.length;
+    const typingMessage = Object.assign({}, messagesSource[messageTypingIndex], {contents: typingIndicatorComponent});
     return (
       <ul className={main}>
         {messages.map(msg =>  {
             return <Bubble key={msg.contents} cssClasses={bubble} message={msg} author={authors[msg.author]} />;
           })}
+        {displayTypingIndicator ?
+          <Bubble key={typingMessage.contents} cssClasses={bubble} message={typingMessage} author={authors[typingMessage.author]} />
+          : null}
       </ul>
     );
   }
