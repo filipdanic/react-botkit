@@ -12,7 +12,7 @@ import './react-botkit.css';
  * @param {string} backgroundColor
  * @returns {Object}
  */
-const typingIndicatorComponent = (backgroundColor = "#fff") => (
+export const typingIndicatorComponent = (backgroundColor = "#fff") => (
   <div className="typing_wrapper">
       <div className="typing_dot" style={{backgroundColor}}></div>
       <div className="typing_dot" style={{backgroundColor}}></div>
@@ -52,13 +52,7 @@ class Conversation extends Component {
     const { main, bubble } = this._botKitCSSClasses;
     const displayTypingIndicator = messages.length < messagesSource.length;
     const messageCopyRef = messagesSource[messages.length];
-    const typingMessage = displayTypingIndicator ? Object.assign(
-      {},
-      messageCopyRef,
-      {
-        contents: typingIndicatorComponent(authors[messageCopyRef.author].color)
-      }
-    ) : undefined;
+    const typingMessage = displayTypingIndicator ? Object.assign({}, messageCopyRef, { contents: typingIndicatorComponent(authors[messageCopyRef.author].color) }) : undefined;
 
     return (
       <ul className={main}>
