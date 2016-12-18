@@ -54,12 +54,18 @@ export const Author = PropTypes.shape({
 /**
  * Thread Settings object. Used to define global settings in the Conversation component.
  * @typedef {Object} ThreadSettings
- * {string} skin - the general style of the thread. Only supports Facebook Messenger right now.
- * {bool} simulateChat - if true, it will simulate the chat. If false, it works like an archive that renders all the Bubbles right away.
+ * @property {string} skin - the general style of the thread. Only supports Facebook Messenger right now.
+ * @property {bool} simulateChat - if true, it will simulate the chat. If false, it works like an archive that renders all the Bubbles right away.
+ * @property {bool} allowReplay - if true, it will show a replay button at the end of the chat.
+ * @property {string} replayButtonClassName - can be used to override CSS class name that wraps the replay button with
+ * @property {*} replayButtonLabel - can be used to override the reply button label
 */
 export const ThreadSettings = PropTypes.shape({
   skin: PropTypes.string,
   simulateChat: PropTypes.bool,
+  allowReplay: PropTypes.bool,
+  replayButtonClassName: PropTypes.string,
+  replayButtonLabel: PropTypes.any,
 });
 
 /**

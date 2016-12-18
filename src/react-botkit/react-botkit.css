@@ -40,7 +40,7 @@
 }
 
 /*
-  * Bubble nimation classess
+  * Bubble animation classess
 */
 
 .item_slide_in_up {
@@ -88,4 +88,19 @@
     100% {
       transform: translate(0, 0);
     }
+}
+
+/**
+  * default style for replay button
+*/
+
+.conversation_list_replay_button {
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.33s all;
+}
+
+.conversation_list_replay_button:hover,
+.conversation_list_replay_button:active {
+  opacity: 1;
 }

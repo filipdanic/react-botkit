@@ -12,6 +12,9 @@
  * @property {boolean} showName
  * @property {string} skin
  * @property {boolean} simulateChat
+ * @property {boolean} allowReplay
+ * @property {string} replayButtonClassName
+ * @property {string} replayButtonLabel
  */
 export default {
   position: 'right',
@@ -22,4 +25,7 @@ export default {
   showName: false,
   skin: 'messenger',
   simulateChat: true,
+  allowReplay: true,
+  replayButtonClassName: 'conversation_list_replay_button',
+  replayButtonLabel: 'Replay Chat',
 };
