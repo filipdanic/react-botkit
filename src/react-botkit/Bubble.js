@@ -18,10 +18,7 @@ class Bubble extends Component {
     const { message, author, cssClasses } = this.props;
     const { contents } = message;
     const {
-      // showName = defaults.showName,
-      // avatar = defaults.avatar,
       position = defaults.position,
-      // name = defaults.name,
       color = defaults.color,
       background = defaults.background,
     } = author;

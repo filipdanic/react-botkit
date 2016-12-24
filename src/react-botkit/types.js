@@ -35,19 +35,11 @@ export const Messages = PropTypes.arrayOf(Message).isRequired;
  * @typedef {Object} Author
  * @property {string} background - the color of the author’s chat bubbles. Can be in hex, rgb, and rgba formats.
  * @property {string} color - same as @background, but used for font color.
- * @property {string} name - the username of the Author.
- * @property {string} avatar - the url of the user avatar.
- * @property {bool} showName - true if author name should be visible in chat.
- * @property {bool} showAvatar - true if author name should be visible in chat.
  * @property {string} position - "left" or "right" to determine the position of the Bubble.
 */
 export const Author = PropTypes.shape({
   background: PropTypes.string,
   color: PropTypes.string,
-  name: PropTypes.string,
-  avatar: PropTypes.string,
-  showName: PropTypes.bool,
-  showAvatar: PropTypes.bool,
   position: PropTypes.oneOf(['left', 'right']),
 });
 

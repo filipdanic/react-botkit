@@ -1,6 +1,6 @@
 /**
  * @param {string} skin
- * @returns {object} with shape = {main: string, bubble: {left: string, right: string}}
+ * @returns {object} with shape = { main: string, bubble: { left: string, right: string } }
  */
 export function getReactBotKitCSSClasses(skin) {
   return {

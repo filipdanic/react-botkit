@@ -8,8 +8,6 @@
  * @property {string} name
  * @property {string} color
  * @property {string} background
- * @property {string|undefined} avatar
- * @property {boolean} showName
  * @property {string} skin
  * @property {boolean} simulateChat
  * @property {boolean} allowReplay
@@ -18,11 +16,8 @@
  */
 export default {
   position: 'right',
-  name: '',
   color: '#fff',
   background: '#0084ff',
-  avatar: undefined,
-  showName: false,
   skin: 'messenger',
   simulateChat: true,
   allowReplay: true,
