@@ -1,5 +1,6 @@
 /*
   * Messenger Skin Styles
+  * General thread and bubble styles.
 */
 .conversation_list--messenger {
   list-style: none;
@@ -22,6 +23,7 @@
 
 /*
   * Telegram Skin Styles
+  * General thread and bubble styles.
 */
 .conversation_list--telegram {
   list-style: none;
@@ -41,6 +43,7 @@
 
 /*
   * Bubble animation classess
+  * Styles for CSS animations of chat bubbles.
 */
 
 .item_slide_in_up {
@@ -62,6 +65,7 @@
 
 /*
   * Typing indicator styles.
+  * Only “typing dots” effect for now.
 */
 
 .typing_dot {
@@ -91,7 +95,7 @@
 }
 
 /**
-  * default style for replay button
+  * Default style for replay conversation button.
 */
 
 .conversation_list_replay_button {

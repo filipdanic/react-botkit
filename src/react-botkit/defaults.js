@@ -5,7 +5,6 @@
 /**
  * @typedef
  * @property {string} position
- * @property {string} name
  * @property {string} color
  * @property {string} background
  * @property {string} skin

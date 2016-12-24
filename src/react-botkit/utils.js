@@ -1,4 +1,9 @@
 /**
+ * @fileoverview Small utility functions are added here.
+ */
+
+/**
+ * Given a string, returns an object with CSS class names that will be used by botkit components.
  * @param {string} skin
  * @returns {object} with shape = { main: string, bubble: { left: string, right: string } }
  */

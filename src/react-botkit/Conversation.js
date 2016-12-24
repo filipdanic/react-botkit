@@ -1,5 +1,6 @@
 /**
- * @fileoverview The <Conversation /> component renders and delegates the entire conversation thread.
+ * @fileoverview
+ * This is the <Conversation /> component that renders and delegates the entire conversation thread.
  */
 import React, { Component, PropTypes } from 'react';
 import { Messages, ThreadSettings } from './types.js';
@@ -9,7 +10,7 @@ import Bubble from './Bubble.js';
 import './react-botkit.css';
 
 /**
- * Helper to generate a typing indicator for the render() method of <Conversation />
+ * Helper to generate a typing indicator for the render() method of <Conversation />.
  * @param {string} backgroundColor
  * @returns {Object}
  */
@@ -42,6 +43,7 @@ class Conversation extends Component {
   }
 
   componentDidMount() {
+    // start adding messages to the message stack
     this.playConversation();
   }
 
@@ -57,7 +59,12 @@ class Conversation extends Component {
     const { main, bubble } = this._botKitCSSClasses;
     const displayTypingIndicator = messages.length < messagesSource.length;
     const messageCopyRef = messagesSource[messages.length];
-    const typingMessage = displayTypingIndicator ? Object.assign({}, messageCopyRef, { contents: typingIndicatorComponent(authors[messageCopyRef.author].color) }) : undefined;
+    const typingMessage = displayTypingIndicator ?
+      Object.assign(
+        {},
+        messageCopyRef,
+        { contents: typingIndicatorComponent(authors[messageCopyRef.author].color)
+      }) : undefined;
 
     return (
       <div>
