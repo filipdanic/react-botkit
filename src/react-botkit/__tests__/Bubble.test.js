@@ -6,8 +6,8 @@ import sampleThread from '../__data__/testSamples.js';
 
 it('renders without crashing + contains the @prop message.contents inside of <li>', () => {
   const message = sampleThread.messages[0];
-  const author = sampleThread.authors['3ba34f4d-8c6e'];
+  const author = sampleThread.authors['human'];
   const { bubble } = getReactBotKitCSSClasses(sampleThread.settings.skin);
-  const bubbleWrapper = shallow(<Bubble message={message} author={author} cssClasses={bubble} />);
+  const bubbleWrapper = shallow(<Bubble shouldScroll={false} message={message} author={author} cssClasses={bubble} />);
   expect(bubbleWrapper.find('li').text()).toEqual(message.contents);
 });

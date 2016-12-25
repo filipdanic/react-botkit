@@ -36,6 +36,7 @@ class Conversation extends Component {
 
   static propTypes = {
     thread: PropTypes.shape({
+      conversationHash: PropTypes.string.isRequired,
       authors: PropTypes.object.isRequired,
       messages: Messages.isRequired,
       settings: ThreadSettings.isRequired,
@@ -47,15 +48,62 @@ class Conversation extends Component {
     this.playConversation();
   }
 
+  componentWillUnmount() {
+    if (this._mainTimeout) {
+      clearTimeout(this._mainTimeout);
+    }
+  }
+
+  /**
+   * Check if the conversation hash has changed.
+   * This happens when we switch-out props with a new conversation.
+   * If the hashes are changed, we reset the internal state of the component.
+   * @param {Object} nextProps
+   * @returns {boolean}
+   */
+  shouldComponentUpdate(nextProps) {
+    if (nextProps.thread.conversationHash !== this.props.thread.conversationHash) {
+      if (this._mainTimeout) {
+        clearTimeout(this._mainTimeout);
+      }
+      this.setState({ messages: [] });
+    }
+    return true;
+  }
+  /**
+   * If the conversation hash has changed between component updates, we need to call playConversation().
+   * @param {Object} prevProps
+   */
+  componentDidUpdate(prevProps) {
+    if (
+        prevProps && this.props
+        && this.props.thread
+        && prevProps.thread
+        && this.props.thread.conversationHash !== prevProps.thread.conversationHash
+      ) {
+      this.playConversation();
+    }
+  }
+
   render() {
     const {
       authors,
       messages: messagesSource,
+      settings,
+    } = this.props.thread;
+
+    // load thread settings
+    const {
+      simulateChat = defaults.simulateChat,
       allowReplay = defaults.allowReplay,
       replayButtonClassName = defaults.replayButtonClassName,
       replayButtonLabel = defaults.replayButtonLabel
-    } = this.props.thread;
+    } = settings;
+
+    // load local messages stack
     const { messages } = this.state;
+
+    // assign classes based on skin, custom css, typing mode etc.
     const { main, bubble } = this._botKitCSSClasses;
     const displayTypingIndicator = messages.length < messagesSource.length;
     const messageCopyRef = messagesSource[messages.length];
@@ -69,16 +117,16 @@ class Conversation extends Component {
     return (
       <div>
         <ul className={main}>
-          {messages.map(msg =>  {
-              return <Bubble key={msg.contents} cssClasses={bubble} message={msg} author={authors[msg.author]} />;
+          {messages.map((msg, index) =>  {
+              return <Bubble key={`${msg.contents}--${index}`} cssClasses={bubble} message={msg} author={authors[msg.author]} />;
             })}
           {displayTypingIndicator ?
-            <Bubble key={typingMessage.contents} cssClasses={bubble} message={typingMessage} author={authors[typingMessage.author]} />
+            <Bubble shouldScroll={simulateChat} key={typingMessage.contents} cssClasses={bubble} message={typingMessage} author={authors[typingMessage.author]} />
             : null}
         </ul>
-        {messagesSource.length === messages.length && allowReplay ?
-          <div onClick={this.playConversation.bind(this)} className={replayButtonClassName}>{replayButtonLabel}</div>
-          : null}
+          {simulateChat && messagesSource.length === messages.length && allowReplay ?
+            <div onClick={this.playConversation.bind(this)} className={replayButtonClassName}>{replayButtonLabel}</div>
+            : null}
       </div>
     );
   }
@@ -111,7 +159,7 @@ class Conversation extends Component {
     this.setState({ messages });
     // if @param messagesOnStack is still a non-empty Array, addToStack(messagesOnStack).
     if (messagesOnStack.length > 0) {
-      setTimeout(() => {
+      this._mainTimeout = setTimeout(() => {
         this.addToStack(messagesOnStack, simulateChat, false);
       }, simulateChat ? messagesOnStack[0].delay : 0);
     }

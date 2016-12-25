@@ -9,15 +9,42 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
   padding: 20px;
   color: white;
+}
+
+.App-nav-button {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.25s all;
+  font-size: 16px;
+  padding: 2px 4px;
+  margin: 10px 6px;
+  border: 1px solid white;
+}
+
+.App-nav-button:hover {
+  background: white;
+  color: #222;
+}
+
+.App-nav-button:active,
+.App-nav-button:focus  {
+  outline: none;
 }
 
 .App-converstion-wrapper {
   max-width: 500px;
   margin: 50px auto;
-  font-size: large;
+  border-left: 1px solid lightgrey;
+  border-right: 1px solid lightgrey;
+  border-bottom: 1px solid lightgrey;
+  height: 350px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  overflow: scroll;
 }
 
 @keyframes App-logo-spin {

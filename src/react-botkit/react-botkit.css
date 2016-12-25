@@ -5,6 +5,8 @@
 .conversation_list--messenger {
   list-style: none;
   text-align: left;
+  margin: 0 auto;
+  padding: 2px 10px;
 }
 
 .conversation_list--messenger .conversation_list_item--messenger--left,

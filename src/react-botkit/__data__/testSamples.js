@@ -4,20 +4,20 @@ const botTypingInterval = 1700;
 export default {
   settings: {
     skin: 'messenger',
-    simulateChat: true,
+    simulateChat: false,
   },
   authors: {
-    '3ba34f4d-8c6e': {
+    'human': {
       background: '#0084ff',
       color: '#fff',
       position: 'right',
     },
-    '79b2abc1-5a72': {
+    'bot-1': {
       background: '#f1f0f0',
       color: '#000',
       position: 'left',
     },
-    'ccffa39f-2ba2': {
+    'bot-2': {
       background: '#f03d25',
       color: '#fff',
       position: 'left',
@@ -27,55 +27,55 @@ export default {
     {
       type: 'message',
       contents: 'Hello, nice to meet you! 👋',
-      author: '3ba34f4d-8c6e',
+      author: 'human',
       delay: userTypingInterval,
     },
     {
       type: 'message',
       contents: 'Nice to meet you too! I’m React BotKit! 🤖',
-      author: '79b2abc1-5a72',
+      author: 'bot-1',
       delay: botTypingInterval,
     },
     {
       type: 'message',
       contents: 'Awesome! My name is Mark. 👱 This looks so fluid!',
-      author: '3ba34f4d-8c6e',
+      author: 'human',
       delay: userTypingInterval,
     },
     {
       type: 'message',
       contents: 'Yeah, pretty neat huh? ⭐️',
-      author: '79b2abc1-5a72',
+      author: 'bot-1',
       delay: botTypingInterval,
     },
     {
       type: 'message',
       contents: 'You can adjust the length of these delays easily.',
-      author: '79b2abc1-5a72',
+      author: 'bot-1',
       delay: botTypingInterval,
     },
     {
       type: 'message',
       contents: 'As well as a the colors, photos and stuff. Just edit a JSON and run!',
-      author: '79b2abc1-5a72',
+      author: 'bot-1',
       delay: botTypingInterval,
     },
     {
       type: 'message',
       contents: 'Oh and…',
-      author: 'ccffa39f-2ba2',
+      author: 'bot-2',
       delay: botTypingInterval,
     },
     {
       type: 'message',
       contents: 'add as many conversation agents as you want! 🍻',
-      author: 'ccffa39f-2ba2',
+      author: 'bot-2',
       delay: botTypingInterval,
     },
     {
       type: 'message',
       contents: 'Yeah, pretty neat! Cheers! 🍻',
-      author: '3ba34f4d-8c6e',
+      author: 'human',
       delay: userTypingInterval,
     },
   ],
